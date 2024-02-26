@@ -1,0 +1,30 @@
+<div class="main-container"
+>
+  <app-image-slider
+    [slides]="slides"
+  ></app-image-slider>
+
+</div>
+
+<div>
+  <h1>Added List</h1>
+  <ul>
+    @for(item of slides ; track $index){
+      <li>Slides {{$index+1}} <button (click)="OnDelete($index)">Delete Item</button> </li>
+    }
+  </ul>
+</div>
+
+
+<form [formGroup]="UrlImage" (ngSubmit)="OnAddURL()">
+  <h1>Add new slide</h1>
+  <label for="img-url">Image url</label>
+  <input type="text" id="img-url" formControlName="url">
+  <label for="img-caption">Slide Caption</label>
+  <input type="text" id="img-caption" formControlName="caption">
+  <button>Add slide</button>
+</form>
+
+<pre>
+  {{UrlImage.value | json}}
+</pre>
