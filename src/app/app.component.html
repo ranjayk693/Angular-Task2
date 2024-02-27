@@ -1,30 +1,33 @@
-<div class="main-container"
+
+<!-- Container which contain the images to this div -->
+<section class="main-container"
 >
+<!-- Passing the array of images to the image-slider compunent-->
   <app-image-slider
     [slides]="slides"
   ></app-image-slider>
 
-</div>
+</section>
 
-<div>
+
+
+<section class="item-list">
   <h1>Added List</h1>
+  <!-- Iterating each list from the array -->
   <ul>
     @for(item of slides ; track $index){
-      <li>Slides {{$index+1}} <button (click)="OnDelete($index)">Delete Item</button> </li>
+      <li>Slides {{$index+1}} <button (click)="OnDelete($index)"><fa-icon [icon]="faTrash"></fa-icon></button> </li>
     }
   </ul>
-</div>
+</section>
 
-
+<!-- Form Section to collect the url of images from the input-->
 <form [formGroup]="UrlImage" (ngSubmit)="OnAddURL()">
   <h1>Add new slide</h1>
   <label for="img-url">Image url</label>
-  <input type="text" id="img-url" formControlName="url">
+  <input type="text" id="img-url" formControlName="url" placeholder="Enter the image url">
   <label for="img-caption">Slide Caption</label>
-  <input type="text" id="img-caption" formControlName="caption">
-  <button>Add slide</button>
+  <input type="text" id="img-caption" formControlName="caption" placeholder="Enter the image Caption">
+  <button type="submit">Add slide</button>
 </form>
 
-<pre>
-  {{UrlImage.value | json}}
-</pre>

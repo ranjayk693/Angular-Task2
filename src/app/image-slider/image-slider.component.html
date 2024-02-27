@@ -1,23 +1,28 @@
 
-<div class="slides">
-  <div
-    class="slide"
-  >
+<section class="slides">
+  <!-- Image Section -->
+  <section class="slide">
   <img [src]="slides[currentSlide].url" [alt]="slides[currentSlide].caption">
-</div>
-  <div id="indicators">
+</section>
+  <section id="indicators">
+    <!-- Indicator slides -->
     @for(slide of slides; track $index; ){
-    <div
+    <section
       (click)="jumpToSlide($index)"
       class="indicator"
       [ngClass]="{ active: $index == currentSlide }"
-    ></div>
+    ></section>
     }
-  </div>
+  </section>
+  <!-- Button for next -->
   <button (click)="next()" class="nextButton">
     <fa-icon [icon]="faArrowRight"></fa-icon>
   </button>
+  <!-- Button for previous -->
   <button (click)="previous()" class="previousButton">
     <fa-icon [icon]="faArrowLeft"></fa-icon>
   </button>
-</div>
+</section>
+
+<!-- Caption of image -->
+<section class="caption">{{slides[currentSlide].caption}}</section>

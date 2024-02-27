@@ -2,6 +2,7 @@
   display: block;
   width: 100%;
 
+  // Slides container styling
   .slides {
     width: 100%;
     height: 80vh;
@@ -18,8 +19,10 @@
         width: 100%;
         height: 100%;
       }
+
     }
 
+    // Button Styling for next and previous
     .nextButton,
     .previousButton {
       position: absolute;
@@ -36,6 +39,7 @@
       left: 20px;
     }
 
+    // Indictor styling
     #indicators {
       position: absolute;
       left: 0px;
@@ -47,8 +51,7 @@
         width: 20px;
         height: 5px;
         border-radius: 20%;
-        background-color: #e2dbdb;
-        
+        background-color: #dad4d4;
         display: inline-block;
         margin: 0px 5px;
         cursor: pointer;
@@ -59,5 +62,14 @@
         }
       }
     }
+  }
+  // Caption Image
+  .caption{
+    position:relative;
+    bottom: 10vh;
+    left:37vw;
+    font-size: 20px;
+    z-index: 99;
+    color: white;
   }
 }
