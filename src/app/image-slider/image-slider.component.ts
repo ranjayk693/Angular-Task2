@@ -12,31 +12,49 @@ import { faArrowRight, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 })
 export class ImageSliderComponent implements OnInit {
 
+  
   // Taking input as array data from the app compunent
   @Input() slides: any[] = [];
+  IsEmpty:boolean=false;
   currentSlide = 0;  //inital index
   faArrowRight = faArrowRight;  //font awesome right arrow
   faArrowLeft = faArrowLeft;    //font awesome left arrow
 
-
   // Next  Function to increment the index
   next() {
-    let currentSlide = (this.currentSlide + 1) % this.slides.length;
-    this.jumpToSlide(currentSlide);
+    if(this.slides.length!==0)
+    {
+      this.IsEmpty=false;
+      let currentSlide = (this.currentSlide + 1) % this.slides.length;
+      this.jumpToSlide(currentSlide);
+    }
+    else{
+      this.IsEmpty=true;
+    }
+    
   }
 
   // Previous function to decrement the index
   previous() {
-    let currentSlide =
+    if(this.slides.length!==0){
+      this.IsEmpty=false;
+      let currentSlide =
       (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-    this.jumpToSlide(currentSlide);
+      this.jumpToSlide(currentSlide);
+    }
+   
   }
 
 // Redirect to the image for given index no 
   jumpToSlide(index: number) {
+    
     setTimeout(() => {
-      this.currentSlide = index;
+      if(this.slides.length!==0){
+        this.IsEmpty=false;
+        this.currentSlide = index;
+      }
     },200);
+    
   }
 
   // Auto change the image slider after 5 sec

@@ -2,7 +2,13 @@
 <section class="slides">
   <!-- Image Section -->
   <section class="slide">
-  <img [src]="slides[currentSlide].url" [alt]="slides[currentSlide].caption">
+    @if(IsEmpty){
+      <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="image not found">
+    }
+    @else{
+      <img [src]="slides[currentSlide].url" [alt]="slides[currentSlide].caption">
+    }
+  
 </section>
   <section id="indicators">
     <!-- Indicator slides -->
@@ -25,4 +31,4 @@
 </section>
 
 <!-- Caption of image -->
-<section class="caption">{{slides[currentSlide].caption}}</section>
+<section class="caption">{{slides[currentSlide].caption?slides[currentSlide].caption:"No Image Caption"}}</section>

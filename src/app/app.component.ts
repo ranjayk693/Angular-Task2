@@ -66,11 +66,6 @@ export class AppComponent {
 
   // Delete the images
   OnDelete(index: number) {
-    // If the image size is one then delete operation is not performed
-    if(this.slides.length==1){
-      alert("Atleast One image is require")
-      return;
-    }
     // Updating the slides array
     this.slides = this.slides.filter((data, dataIndex) => dataIndex !== index);
   }
